@@ -86,38 +86,34 @@
       
         <h1 id="使用github进行团队协作开发"><a href="#使用github进行团队协作开发" class="headerlink" title="使用github进行团队协作开发"></a>使用github进行团队协作开发</h1><p>github是一种常用的团队协作开发工具。在此次Travis.CI持续集成练习中，我们使用了github来进行团队管理，以下是我们的一些使用心得。</p>
 <h2 id="Issues的使用"><a href="#Issues的使用" class="headerlink" title="Issues的使用"></a>Issues的使用</h2><p>github中的issues功能除了追踪各种想法、提出bug等外，还能用于进行团队任务分配和管理。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="issue.png" alt=""><br>issue的左边为成员对该issue的修改记录，右侧栏中为对该issue的各种操作：</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><img src="https://leeQT.github.io/photos/issue.png" alt=""><br>issue的左边为成员对该issue的修改记录，右侧栏中为对该issue的各种操作：</p>
 <h4 id="Assignees"><a href="#Assignees" class="headerlink" title="Assignees:"></a>Assignees:</h4><p>团队成员可以将这个任务assign给任何人，也可以通过unassign删除成员。</p>
 <h4 id="Lables"><a href="#Lables" class="headerlink" title="Lables:"></a>Lables:</h4><p>团队成员可以为该issue添加各种自定义的标签，方便issues的管理。</p>
 <h4 id="Projects"><a href="#Projects" class="headerlink" title="Projects:"></a>Projects:</h4><p>将该issue划归特定Project，具体作用在稍后说明。</p>
 <h4 id="Milestone"><a href="#Milestone" class="headerlink" title="Milestone"></a>Milestone</h4><p>每个issue只属于一个Milestone，用于标记任务在整个项目中的进程</p>
-<h2 id="Projects的使用"><a href="#Projects的使用" class="headerlink" title="Projects的使用"></a>Projects的使用</h2><p>Projects是github于2016年推出的项目管理工具，协助开发者在开发流程中整合项目管理，让开发者可以直接在GitHub程序代码储存库中管理工作流程。<br>如下图所示，Projects将issues分为To do, In progress, Done三种。每当一个新issue创建时便被自动归于To do类，成员可以直接在界面上进行拖拽，将特定issue放到In progress中。当该issue被关闭时，自动被归为Done类。<br>Projects面板可以让我们很方便地监控项目进度。<br><img src="projects.png" alt=""></p>
+<h2 id="Projects的使用"><a href="#Projects的使用" class="headerlink" title="Projects的使用"></a>Projects的使用</h2><p>Projects是github于2016年推出的项目管理工具，协助开发者在开发流程中整合项目管理，让开发者可以直接在GitHub程序代码储存库中管理工作流程。<br>如下图所示，Projects将issues分为To do, In progress, Done三种。每当一个新issue创建时便被自动归于To do类，成员可以直接在界面上进行拖拽，将特定issue放到In progress中。当该issue被关闭时，自动被归为Done类。<br>Projects面板可以让我们很方便地监控项目进度。<br><img src="https://leeQT.github.io/photos/projects.png" alt=""></p>
 <h2 id="branches的使用"><a href="#branches的使用" class="headerlink" title="branches的使用"></a>branches的使用</h2><p>当多人协作时，为保证主分支代码的正确性以及支持并行开发，我们常常需要每个团队成员创建一个自己的分支，在其上进行操作。</p>
 <h3 id="branch的创建与维护"><a href="#branch的创建与维护" class="headerlink" title="branch的创建与维护"></a>branch的创建与维护</h3><p>一些常用指令：</p>
-<blockquote>
 <ol>
-<li>git branch dev &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #创建名为dev的分支</li>
-<li>git checkout dev &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#切换到dev分支</li>
-<li>git merge dev &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将dev中的代码merge到当前分支中</li>
-<li>git branch –set -upstream branchName origin/branchName<br>#建立本地分支与远程分支的关联，branchName为自己设定的分支名。本地分支若不推送到远程，则对他人不可见。</li>
-<li>git push origin dev &nbsp;&nbsp;#将本地代码push到远程指定分支中</li>
+<li>git branch dev &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //创建名为dev的分支</li>
+<li>git checkout dev &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//切换到dev分支</li>
+<li>git merge dev &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//将dev中的代码merge到当前分支中</li>
+<li>git branch –set -upstream branchName origin/branchName<br>//建立本地分支与远程分支的关联，branchName为自己设定的分支名。本地分支若不推送到远程，则对他人不可见。</li>
+<li>git push origin dev &nbsp;&nbsp;//将本地代码push到远程指定分支中</li>
 </ol>
-</blockquote>
 <p>当git无法自动合并分支时，我们必须手动解决冲突，然后重新提交。</p>
 <h3 id="强制更新"><a href="#强制更新" class="headerlink" title="强制更新"></a>强制更新</h3><p>有时候我们无法顺利从远程pull下来代码，此时如果本地代码没有做什么修改，可以考虑将远程仓库中的代码强行更新到本地，具体指令如下：</p>
-<blockquote>
 <ol>
 <li>git fetch –all</li>
-<li>git reset –hard origin/master &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#origin/master为远程分支名</li>
+<li>git reset –hard origin/master &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//origin/master为远程分支名</li>
 <li>git pull</li>
 </ol>
-</blockquote>
 <p>执行完毕若没有发生错误，即更新完成。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/19/Team-development-using-github/" data-id="cjng0xdx70000bsx4bweyyng2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/19/Team-development-using-github/" data-id="cjnh1gwep00001cx4oraiff0m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/13/new-post/" data-id="cjng0xdxu0002bsx4w8q9wuz4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/13/new-post/" data-id="cjnh1gwey00021cx4kap4sj99" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/13/hello-world/" data-id="cjng0xdxd0001bsx4z5s5rh6n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/13/hello-world/" data-id="cjnh1gwev00011cx411ggo2tp" class="article-share-link">Share</a>
       
       
     </footer>
